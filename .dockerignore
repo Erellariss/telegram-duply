@@ -1,0 +1,10 @@
+.venv
+data/downloads
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+duply.tar
+readme.md
