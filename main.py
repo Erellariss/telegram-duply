@@ -82,6 +82,10 @@ async def clone_messages_from_topic(group_id_from: int, topic_id_from: int | Non
         except FileReferenceExpiredError:
             logger.warning(f"file from message with id {message.id} was expired, retry...")
             continue
+        except RuntimeError as error:
+            logger.error(error)
+            logger.warning(f"Sending message failed, retry...")
+            continue
         except FloodError as error:
             logger.error(error)
             if error.seconds:
